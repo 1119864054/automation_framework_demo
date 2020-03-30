@@ -37,10 +37,13 @@ class BaiduSearch(unittest.TestCase):
         这里一定要test开头，把测试逻辑代码封装到一个test开头的方法里。
         :return:
         """
-        self.driver.find_element_by_id('kw').send_keys('selenium')
+        element = self.driver.find_element_by_id('kw')
+        print(element)
+        element.send_keys('selenium')
         time.sleep(1)
         self.driver.find_element_by_id('su').click()
         time.sleep(5)
+        print(self.driver.title)
         try:
             assert 'selenium' in self.driver.title
             print('Test Pass.')
